@@ -15,7 +15,7 @@ this_dir = Path(this_file).parent
 # change this if your app use a different name
 KH_PACKAGE_NAME = "kotaemon_app"
 
-KH_APP_VERSION = os.environ.get("KH_APP_VERSION", None)
+KH_APP_VERSION = os.environ.get("KH_APP_VERSION", "(none)")
 if not KH_APP_VERSION:
     try:
         # Caution: This might produce the wrong version
@@ -23,6 +23,8 @@ if not KH_APP_VERSION:
         KH_APP_VERSION = version(KH_PACKAGE_NAME)
     except Exception as e:
         print(f"Failed to get app version: {e}")
+
+KH_USER_CAN_SEE_PUBLIC = None
 
 # App can be ran from anywhere and it's not trivial to decide where to store app data.
 # So let's use the same directory as the flowsetting.py file.
